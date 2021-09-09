@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE-edge">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+         <title>COUPON TOOL</title>
+</head>        
+ <body>
+     <h1 class="text-center">coupon tool</h1>
+     <h2>search by coupontags</h2>
+     <form action="" method="get">
+         <input type="text" name="tags">
+         <button tupe="submit" value="search">search</button>
+
+     </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {% for i in coupon_info %}
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card" style="width: 18rem;">
+                         <img src="{{i.banner3}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.title}}</h5>
+                                 <p class="card-title">{{i.ID}}</p>
+                                 <p class="card-text">{{i.url}}</p>
+                                 <a href="sendsms.html" class="btn btn-primary">SEND EMAIL</a>
+                                 <a href="{% url 'sendsms' %}?coupen_id={{i.ID}}" class="btn btn-primary">SEND SMS</a>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+               {% endfor %}
+               </div>
+                 <div class="col-md-6">
+                 category
+                 </div>
+         </div>
+    </div>       
+        
+       
+ </body>>
+</html>>
